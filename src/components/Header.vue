@@ -1,7 +1,7 @@
 <template>
     <header class=' py-6  h-full  px-6  bg-purple-900 '>
         <div class='flex mb-4'>
-          <h1 class='text-3xl sm:text-xl font-bold text-pink-500 mr-2'> Nearby Places </h1>
+          <h1 class='text-3xl sm:text-xl font-bold text-pink-500 mr-2'> Nearby Places Search  </h1>
           <i class="fas fa-map-marker-alt text-3xl sm:text-xl font-bold text-pink-500 " ></i>
         </div>
         <p class='  text-white'> Find Places Close to You !!! </p>

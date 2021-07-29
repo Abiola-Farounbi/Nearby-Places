@@ -5,7 +5,7 @@
     <!-- Venues -->
    <section class='my-12 mx-4 '>
      <!-- Form for data -->
-    <div>
+    <section>
     <form  @submit.prevent="submit">
     <div class='rounded-md shadow-xl mb-8 px-4 py-4'>
      <div class='my-4'>
@@ -20,14 +20,14 @@
           w-full
           '
           />
-          <button
+          <span
           class='border-none rounded-r-md bg-purple-900 py-2 px-4 text-white text-xl'>
              <i class="fas fa-compass"></i>
-          </button>
+          </span>
       </div>
      </div>
       <div class='my-4'>
-             <label for='type'> Select The Place Type </label>
+             <label for='type'> Select Places Type </label>
              <br>
             <select v-model="type" id='type'  class='border-purple-900
           p-2
@@ -52,27 +52,34 @@
       </div>
       <div class=" my-4 flex justify-end">
         <button class='border-none rounded-md bg-purple-900 p-2 text-white text-xl'
-         @click="findCloseBuyButtonPressed">Find CloseBuy</button>
+         @click="findCloseBuyButtonPressed">Find Places CloseBy</button>
       </div>
     </div>
   </form>
-    </div>
+    </section>
 
      <!-- Displaying Venues -->
-    <div class=' px-4 py-4 '>
+    <section class=' px-4 py-4 '>
 
       <!--Load  -->
-   <div  v-if="isLoading"  class='  flex item-cnter'>
+   <div  v-if="isLoading "  class='  flex item-cnter'>
      <img src='./assets/loading.gif' alt="Loading gif">
     </div>
-    <display-venues :venues ='places'/>
-  <div v-if='isVenueEmpty' class='my-12 mx-4 font-bold text-pink-500 text-xl text-center'>
-    No Venue Found
-  </div>
-  <div v-if='isError' class='bg-white rounded-md border-double border-4 p-2 border-pink-500 text-red-700 text-xl text-center'>
+   <!-- error -->
+     <div v-if='isError' class='bg-white rounded-md border-double border-4 p-2 border-pink-500 text-red-700 text-xl text-center'>
       {{erroredMessage}}
+     </div>
+ 
+ <!-- displaying the venues -->
+  <div v-if='!isVenueEmpty'>
+       <display-venues :venues ='places'/>
   </div>
-    </div>
+  <div v-if='isVenueEmpty && !isError && !isLoading' class='my-12 mx-4 font-bold text-purple-900 text-2xl text-center'>
+         No Venue Found !!!
+        <img src='./assets/emptyLocation.png' alt="Loading gif">
+  </div>
+ 
+    </section>
 
   </section>
 
@@ -81,7 +88,8 @@
     <div v-if='!isVenueEmpty' class='my-12 mx-4'>
       <display-map :venues="places" :centreLat="lat" :centreLng="lng"/>
   </div>
-  <div  v-else class='my-12 mx-4 font-bold text-pink-500 text-xl text-center'>
+  <div  v-if='isVenueEmpty && !isError && !isLoading' class='my-12 mx-4 font-bold text-purple-900 text-2xl text-center'>
+        <img src='./assets/emptyMap.png' alt="Loading gif">
      No Location Found !!!
   </div>
   </section>
@@ -137,8 +145,9 @@ computed: {
       return this.$store.state.isLoading
     },
     isError(){
-        return this.$store.state.isError
-    }
+      return this.$store.state.isError
+    },
+ 
 },
 created(){
   navigator.geolocation.getCurrentPosition(
@@ -153,17 +162,17 @@ created(){
 },
 methods: {
     findCloseBuyButtonPressed() {
-          this.$store.state.isLoading = true
+          this.$store.commit('loading',true)
         const endpoint = `https://api.foursquare.com/v2/venues/search?client_id=${this.parameters.client_id}&client_secret=${this.parameters.client_secret}&v=${this.parameters.v} &near=${this.coordinates}&query=${this.type}&limit=${this.parameters.limit}&radius=${this.parameters.radius}`
         axios.get(endpoint)
         .then((data) => {
             this.places = data.data.response.venues 
-            this.$store.state.isLoading = false
+            this.$store.commit('loading',false)
           })
          
           .catch(error => {
-            this.$store.state.isLoading = false
-            this.$store.state.isError=true
+            this.$store.commit('loading',false)
+            this.$store.commit('showwError',true)
             this.erroredMessage = error.message
           })
     },
@@ -179,5 +188,6 @@ methods: {
   padding:0px;
   font-family: 'Roboto', sans-serif;
 }
+
 
 </style>

@@ -5,6 +5,14 @@ const store = createStore({
       isLoading: false,
       isError: false
     },
+   mutations:{
+       loading(state, value) {
+         state.isLoading = value
+       },
+       showwError(state, value) {
+         state.isError = value
+       },
+   }
    
 })
 

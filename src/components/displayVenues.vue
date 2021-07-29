@@ -10,7 +10,7 @@
     {{venue.name}}
     </li> 
     <li class='list-none  my-2'>
-      {{venue.categories[0].name}}
+     <b>  Venue Type  </b>- {{venue.categories[0].name}}
     </li>
     <p>
       {{venue.location.address}},{{venue.location.city}},{{venue.location.state}}

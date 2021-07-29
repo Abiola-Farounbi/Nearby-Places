@@ -12,7 +12,6 @@
     "core-js": "^3.6.5",
     "leaflet": "^1.7.1",
     "vue": "^3.0.0",
-    "vue-meta": "^2.4.0",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
