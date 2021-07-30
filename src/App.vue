@@ -76,7 +76,7 @@
   </div>
   <div v-if='isVenueEmpty && !isError && !isLoading' class='my-12 mx-4 font-bold text-purple-900 text-2xl text-center'>
          No Venue Found !!!
-        <img src='./assets/emptyLocation.png' alt="Loading gif">
+        <img src='./assets/emptyLocation.png' alt="Empty Location">
   </div>
  
     </section>
@@ -89,7 +89,7 @@
       <display-map :venues="places" :centreLat="lat" :centreLng="lng"/>
   </div>
   <div  v-if='isVenueEmpty && !isError && !isLoading' class='my-12 mx-4 font-bold text-purple-900 text-2xl text-center'>
-        <img src='./assets/emptyMap.png' alt="Loading gif">
+        <img src='./assets/emptyMap.png' alt="Empty Map">
      No Location Found !!!
   </div>
   </section>
@@ -191,3 +191,4 @@ methods: {
 
 
 </style>
+
