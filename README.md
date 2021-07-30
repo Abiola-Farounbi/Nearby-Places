@@ -8,9 +8,8 @@
 
 
 - [About](https://github.com/Abiola-Farounbi/Nearby-Places/#About) 
-- Tools/Technologies
-- Purpose Project
-- Demo
+- [Technologies](https://github.com/Abiola-Farounbi/Nearby-Places/#Technologies)
+- [Demo](https://github.com/Abiola-Farounbi/Nearby-Places/#Demo) 
 - [Author](https://github.com/Abiola-Farounbi/Nearby-Places/#Author) 
 
 
@@ -22,30 +21,30 @@ This application provides users with a platform to find places near their locati
  - Users are able to search for places close their location. 
  - Users are able to find places(restaurant, transport etc) close their location.
  - Users are able to locate places on the Map.
+
+# Technologies
+
+![Vue Js](https://img.shields.io/badge/Vue-41b883?style=for-the-badge&logo=vue.js&logoColor=white)
+![Vuex](https://img.shields.io/badge/Vuex-41b884?style=for-the-badge&logo=vue.js&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-blue?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Axios](https://img.shields.io/badge/Axios-5a29e4?style=for-the-badge)
+![Leaflet JS](https://img.shields.io/badge/Leaflet_JS-green?style=for-the-badge)
+
+
+# Demo
+Live site - https://nearbyplacesfinder.netlify.app/
+
+### Setup On Local Server
  
-
-# Author 
-- [Abiola Farounbi](https://abiolaesther.me/)
-
-## Project setup
-```
+ ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+# Author 
+- [Abiola Farounbi](https://abiolaesther.me/)
 
-### Lints and fixes files
-```
-npm run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
