@@ -18,9 +18,9 @@
 This application provides users with a platform to find places near their location 
  
  ### Features
- - Users are able to search for places close their location. 
- - Users are able to find places(restaurant, transport etc) close their location.
- - Users are able to locate places on the Map.
+ - Users are able to search for places close to their location.
+- Users are able to find places(restaurant, transport, etc) close to their location.
+- Users are able to locate places on the Map.
 
 # Technologies
 
